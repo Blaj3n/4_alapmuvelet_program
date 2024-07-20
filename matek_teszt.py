@@ -3,7 +3,7 @@ import random
 
 # print("1. feladat")
 
-print(f"Milyen műveletet szeretne gyakorolni? \n\n\t1. Összeadás \n\t2. Kivonás \n\t3. Szorzás")
+print(f"Milyen műveletet szeretne gyakorolni? \n\n\t1. Összeadás \n\t2. Kivonás \n\t3. Szorzás \n\t4. Osztás")
 
 # print("2. feladat")
 
