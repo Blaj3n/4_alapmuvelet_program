@@ -1,6 +1,5 @@
 # átlag/százalékszámítás, kerekítés
 # illetve felhasználó által megadott feladatok kiírása pluszba
-# válasz CSAK 1 és 3 közötti szám lehet -->  HIBA!! ha 1-nél kisebb vagy 4-nél nagyobb számot adunk meg hibára fut
 import random
 
 print(f"Milyen műveletet szeretnél gyakorolni? \n\n\t1. Összeadás \n\t2. Kivonás \n\t3. Szorzás \n\t4. Osztás")
@@ -12,6 +11,14 @@ valasz = int(input("\nVálasztás (1-4): "))
 # db = int(input("Hány műveletet szeretnél?: "))
 darab = 0
 helyes = 0
+
+while valasz < 1 or valasz > 4:
+    if valasz < 1:
+        print("Adj meg egy nagyobb számot!")
+        valasz = int(input("\nVálasztás (1-4): "))
+    elif valasz > 4:
+        print("Adj meg egy kisebb számot!")
+        valasz = int(input("\nVálasztás (1-4): "))
 
 while helyes < 5:
     darab += 1
@@ -28,21 +35,14 @@ while helyes < 5:
         eredmeny = (szam_1 * szam_2)
         tipp = int(input(f"{szam_1} * {szam_2} = "))
     elif valasz == 4:
-        eredmeny = (szam_1 / szam_2)
+        eredmeny = (szam_1 / szam_2) # Ez így rendben van, mert "/" -> ez a sima osztás, round-dal kerekíthetsz és megadhatod, hogy hány tizedesjegyig, "//" -> ez pedig az egész osztás. Ezt nevezzük DEV-nek. Van még "%", ez a maradékos osztás, MOD-nak nevezzük.
         tipp = int(input(f"{szam_1} / {szam_2} = "))
 
-    if valasz < 1:
-        print("Adj meg egy nagyobb számot!")
-        valasz = int(input("\nVálasztás (1-4): "))
-    elif valasz > 4:
-        print("Adj meg egy kisebb számot!")
-        valasz = int(input("\nVálasztás (1-4): "))
-
-    # if tipp == eredmeny:
-    #     helyes += 1
-    #     print("Helyes! ")
-    # else:
-    #     print("Hibás! ")
+    if tipp == eredmeny:
+        helyes += 1
+        print("Helyes! ")
+    else:
+        print("Hibás! ")
 
 print(f"Gratulálunk!\nSikerült 5 helyes műveletet elvégezni {darab} próbálkozásból. ", end="")
 
