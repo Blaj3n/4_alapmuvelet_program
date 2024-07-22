@@ -10,36 +10,41 @@ valasz = int(input("\nVálasztás (1-4): "))
 
 
 # db = int(input("Hány műveletet szeretnél?: "))
-db = 0
-ok = 0
+darab = 0
+helyes = 0
 
-while ok < 5:
-    db += 1
-    a = random.randint(1,10) # <- itt nem úgy van, mint a range-nél, hogy [x, y[, hanem itt így van: [x, y].
-    b = random.randint(1, 10)
+while helyes < 5:
+    darab += 1
+    szam_1 = random.randint(1, 10)  # <- itt nem úgy van, mint a range-nél, hogy [x, y[, hanem itt így van: [x, y].
+    szam_2 = random.randint(1, 10)
 
     if valasz == 1:
-        d = (a + b)
-        c = int(input(f"{a} + {b} = "))
+        eredmeny = (szam_1 + szam_2)
+        tipp = int(input(f"{szam_1} + {szam_2} = "))
     elif valasz == 2:
-        d = (a - b)
-        c = int(input(f"{a} - {b} = "))
+        eredmeny = (szam_1 - szam_2)
+        tipp = int(input(f"{szam_1} - {szam_2} = "))
     elif valasz == 3:
-        d = (a * b)
-        c = int(input(f"{a} * {b} = "))
+        eredmeny = (szam_1 * szam_2)
+        tipp = int(input(f"{szam_1} * {szam_2} = "))
     elif valasz == 4:
-        d = (a / b)
-        c = int(input(f"{a} / {b} = "))
-    else:
-        print("Rossz számot adtál meg!")
+        eredmeny = (szam_1 / szam_2)
+        tipp = int(input(f"{szam_1} / {szam_2} = "))
+
+    if valasz < 1:
+        print("Adj meg egy nagyobb számot!")
         valasz = int(input("\nVálasztás (1-4): "))
-    if c == d:
-        ok += 1
-        print("Helyes! ")
-    else:
-        print("Hibás! ")
+    elif valasz > 4:
+        print("Adj meg egy kisebb számot!")
+        valasz = int(input("\nVálasztás (1-4): "))
 
-print(f"Gratulálunk!\nSikerült 5 helyes műveletet elvégezni {db} próbálkozásból. ", end="")
+    # if tipp == eredmeny:
+    #     helyes += 1
+    #     print("Helyes! ")
+    # else:
+    #     print("Hibás! ")
+
+print(f"Gratulálunk!\nSikerült 5 helyes műveletet elvégezni {darab} próbálkozásból. ", end="")
 
 
-print(f"{round((ok/db) * 100, 2)}%")
+print(f"{round((helyes/darab) * 100, 2)}%")
