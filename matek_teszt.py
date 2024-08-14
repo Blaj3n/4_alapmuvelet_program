@@ -35,8 +35,8 @@ while helyes < 5:
         eredmeny = (szam_1 * szam_2)
         tipp = int(input(f"{szam_1} * {szam_2} = "))
     elif valasz == 4:
-        eredmeny = (szam_1 / szam_2) # Ez így rendben van, mert "/" -> ez a sima osztás, round-dal kerekíthetsz és megadhatod, hogy hány tizedesjegyig, "//" -> ez pedig az egész osztás. Ezt nevezzük DEV-nek. Van még "%", ez a maradékos osztás, MOD-nak nevezzük.
-        tipp = int(input(f"{szam_1} / {szam_2} = "))
+        eredmeny = (round(szam_1 % szam_2, 1)) # Ez így rendben van, mert "/" -> ez a sima osztás, round-dal kerekíthetsz és megadhatod, hogy hány tizedesjegyig, "//" -> ez pedig az egész osztás. Ezt nevezzük DEV-nek. Van még "%", ez a maradékos osztás, MOD-nak nevezzük.
+        tipp = float(input(f"{szam_1} / {szam_2} = "))
 
     if tipp == eredmeny:
         helyes += 1
